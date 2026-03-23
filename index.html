@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Wars</title>
+   <link rel="stylesheet" href="/Css/fondo.css">
+    <link rel="stylesheet" href="/Css/Style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Sacramento&display=swap" rel="stylesheet">
+
+<style>
+   
+
+</style>
+</head>
+
+
+<body>
+    <nav class="nav">
+        <section class="wrapper">
+          <div id="stars"></div>
+          <div id="stars2"></div>
+          <div id="stars3"></div>
+          
+
+   <header class="Container">
+        <h1 id="Title">Star Wars</h1>
+   </header>
+
+<section class="crawl-section">
+    <div class="star-wars">
+        <div class="crawl">
+            <div class="title">
+                <p>En una galaxia muy, muy lejana...</p>
+                <h1>La Historia Continua</h1>
+            </div>
+
+            <p>
+                Durante incontables generaciones, la Fuerza ha guiado el destino de la galaxia.
+                Los Jedi, guardianes de la paz y la justicia, han luchado por mantener el equilibrio
+                frente a la oscuridad creciente de los Sith, quienes buscan poder absoluto.
+            </p>
+
+            <p>
+                En medio de este conflicto eterno, héroes y villanos han surgido: guerreros legendarios,
+                maestros sabios, aprendices caídos y líderes que han marcado el rumbo de mundos enteros.
+            </p>
+
+            <p>
+                Esta es la historia de algunos de los personajes más influyentes de la galaxia,
+                cuyas decisiones, sacrificios y batallas han dejado una huella imborrable en el destino
+                del universo.
+            </p>
+        </div>
+    </div>
+</section>
+
+
+    
+<section class="section" id="section-gallery">
+    <div class="gallery">
+
+        <div class="card">
+            <p class="name">Darth Vader</p>
+            <img src="/Img/Vader.jpg" alt="Vader">
+        </div>
+
+        <div class="card">
+            <p class="name">Anakin Skywalker</p>
+            <img src="/Img/Anakin.jpg" alt="anakin">
+        </div>
+
+        <div class="card">
+            <p class="name">Obi-Wan Kenobi</p>
+            <img src="/Img/Obiwan.jpg" alt="Obiwan">
+        </div>
+
+        <div class="card">
+            <p class="name">Yoda</p>
+            <img src="/Img/Yoda.jpg" alt="Yoda">
+        </div>
+
+        <div class="card">
+            <p class="name">Emperador Palpatine</p>
+            <img src="/Img/Palpatine.jpg" alt="Palpatine">
+        </div>
+
+    </div>
+</section>
+
+
+   <section class="Fight">
+    <div id="VideoF">
+        <p id="namefight">Pelea Obiwan vs Vader</p>
+        <iframe id="ObiwanvsVader"width="600" height="320"
+        src="https://www.youtube.com/embed/r2KgnswqCTY" frameborder="0" allowfullscreen>
+    </iframe>
+    </div>
+   </section>
+
+
+<div class="audio-player">
+    <p class="song-title">Duel of the Fates</p>
+    <audio id="music" src="/ytmp3free.cc_duel-of-the-fates-youtubemp3free.org.mp3"></audio>
+
+    <button id="playPauseBtn">▶</button>
+
+    <input type="range" id="seekBar" value="0">
+
+    <button id="muteBtn">🔊</button>
+
+    <input type="range" id="volumeBar" min="0" max="1" step="0.01" value="0.5">
+</div>
+
+
+<footer class="footer">
+    <p>© 2026 Star Wars Fan Page — Creado por Gabriel</p>
+</footer>
+
+
+</nav>
+<script>
+    const audio = document.getElementById("music");
+    const playPauseBtn = document.getElementById("playPauseBtn");
+    const muteBtn = document.getElementById("muteBtn");
+    const seekBar = document.getElementById("seekBar");
+    const volumeBar = document.getElementById("volumeBar");
+
+    audio.volume = 0.5;
+    audio.muted = false;
+    audio.play().then(() => {
+        setTimeout(() => audio.muted = false, 500);
+    });
+
+    playPauseBtn.addEventListener("click", () => {
+        if (audio.paused) {
+            audio.play();
+            playPauseBtn.textContent = "⏸";
+        } else {
+            audio.pause();
+            playPauseBtn.textContent = "▶";
+        }
+    });
+
+    muteBtn.addEventListener("click", () => {
+        audio.muted = !audio.muted;
+        muteBtn.textContent = audio.muted ? "🔇" : "🔊";
+    });
+
+    audio.addEventListener("timeupdate", () => {
+        seekBar.value = (audio.currentTime / audio.duration) * 100;
+    });
+
+    seekBar.addEventListener("input", () => {
+        audio.currentTime = (seekBar.value / 100) * audio.duration;
+    });
+
+    volumeBar.addEventListener("input", () => {
+        audio.volume = volumeBar.value;
+    });
+</script>
+
+
+</body>
+
+
+</html>
