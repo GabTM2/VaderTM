@@ -224,5 +224,45 @@ body{
     }
 }
 
+@media (max-width: 768px) {
+    #VideoF iframe {
+        width: 100%;       
+        height: auto;
+        aspect-ratio: 16/9; 
+    }
+}
+
+@media (max-width: 600px) {
+
+    .gallery img {
+        max-width: 220px;
+        max-height: 300px;
+    }
+
+    .audio-player {
+        flex-wrap: wrap;      
+        justify-content: center;
+        gap: 10px;
+        padding: 12px;
+    }
+
+    .audio-player button {
+        font-size: 18px;
+        padding: 8px 12px;
+    }
+
+    #seekBar, #volumeBar {
+        width: 100%;          
+    }
+
+    .song-title {
+        font-size: 18px;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+}
+
+
 
 
